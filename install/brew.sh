@@ -25,7 +25,6 @@ brew install speedtest-cli
 # brew install node
 brew install typescript
 brew install go
-brew install stats
 brew install itsycal
 brew install thefuck
 brew install zsh
@@ -74,6 +73,7 @@ brew install --cask jiggler
 brew install --cask oversight
 brew install --cask malwarebytes
 # brew install --cask istat-menus
+brew install --cask stats
 brew install --cask shottr
 brew install --cask keycastr
 brew install --cask overkill # kill itunes
