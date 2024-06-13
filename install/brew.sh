@@ -1,11 +1,3 @@
-# Install Homebrew
-
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew update
-brew upgrade
-
-brew tap homebrew/cask-versions
-
 # Install packages
 brew install htop
 brew install iftop
@@ -50,7 +42,6 @@ echo "brew packages installed 🚀"
 
 brew install --cask hpedrorodrigues/tools/dockutil # See https://github.com/kcrawford/dockutil/issues/127#issuecomment-1118733013
 # brew install dockutil # Used to manage the dock
-brew install --cask google-chrome
 brew install --cask firefox
 brew install --cask iterm2
 brew install --cask alfred
