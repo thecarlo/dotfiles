@@ -1,0 +1,79 @@
+#!/usr/bin/env sh
+
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+#
+# see this wiki page for information:
+#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
+#
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+#place cursor on focused monitor
+yabai -m config mouse_follows_focus on
+
+#automatically focus wherever mouse cursor is
+# yabai -m config focus_follows_mouse autoraise
+# yabai -m config focus_follows_mouse autofocus
+yabai -m config focus_follows_mouse off
+
+# yabai -m config mouse_modifier fn
+# yabai -m config mouse_action1 move
+# yabai -m config mouse_action2 resize
+
+yabai -m config window_origin_display default
+yabai -m config window_placement second_child
+yabai -m config window_zoom_persist on
+yabai -m config window_shadow off
+yabai -m config window_animation_duration 0.0
+yabai -m config window_animation_frame_rate 120
+yabai -m config window_opacity_duration 0.0
+yabai -m config window_opacity off
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.90
+yabai -m config insert_feedback_color 0xffd75f5f
+yabai -m config split_ratio 0.50
+yabai -m config split_type auto
+yabai -m config auto_balance on
+yabai -m config top_padding 0
+yabai -m config bottom_padding 0
+yabai -m config left_padding 0
+yabai -m config right_padding 0
+yabai -m config window_gap 0
+yabai -m config layout bsp
+yabai -m config window_border off
+
+yabai -m rule --add app="^System Preferences$" sticky=on layer=above manage=off
+yabai -m rule --add app="^System Information$" layer=above manage=off
+yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add label="About This Mac" app="System Information" title="About This Mac" manage=off
+yabai -m rule --add app="^FaceTime$" manage=off
+yabai -m rule --add app="^Disk Utility$" layer=above manage=off
+yabai -m rule --add app="^Activity Monitor$" layer=above manage=off
+yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add label="Safari" app="^Safari$" title="^(General|(Tab|Password|Website|Extension)s|AutoFill|Se(arch|curity)|Privacy|Advance)$" manage=off
+yabai -m rule --add app="^Dictionary$" manage=off
+yabai -m rule --add app="^Archive Utility$" manage=off
+yabai -m rule --add app="^Bartender 5$" manage=off
+yabai -m rule --add app="^iStat*" layer=above manage=off mouse_follows_focus=off
+yabai -m rule --add app="^Folx$" manage=off
+yabai -m rule --add app="^AWS VPN Client$" manage=off
+yabai -m rule --add app="^VLC$" manage=off
+yabai -m rule --add app="^AlDente$" manage=off
+yabai -m rule --add app="^Rectangle$" manage=off
+yabai -m rule --add app="^KeyCastr$" manage=off
+yabai -m rule --add app="^Logi Options.*$" manage=off
+yabai -m rule --add app="(^JetBrains Toolbox$)" title="(^JetBrains Toolbox$)" manage=off
+yabai -m rule --add app="^ColorSlurp$" manage=off
+yabai -m rule --add app="^Citrix Secure Access$" manage=off
+yabai -m rule --add app="^Internet Status$" manage=off
+yabai -m rule --add app="^Screen Studio$" manage=off
+yabai -m rule --add app="^Default Folder X.*$" manage=off
+yabai -m rule --add app="^Raycast.*$" manage=off
+yabai -m rule --add app="^Raycast Settings$" manage=off
+yabai -m rule --add app="(^ChatGPT$)" title="(^Settings$)" manage=off
+yabai -m rule --add app="(^Keyboard Maestro$)" title="(^Preferences$)" manage=off
+# yabai -m rule --add app="^Snagit.*$" manage=off
+# yabai -m rule --add app="^Karabiner-EventViewer$" manage=off

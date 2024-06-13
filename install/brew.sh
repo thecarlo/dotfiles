@@ -32,6 +32,7 @@ brew install zsh
 brew install zsh-syntax-highlighting
 brew install zsh-autosuggestions
 brew install z
+brew install cliclick
 
 sleep 1
 
@@ -87,7 +88,6 @@ brew install --cask iina
 brew install --cask qlmarkdown
 brew install --cask quicklook-json
 brew install --cask emojipedia
-brew install --cask raycast
 
 sleep 1
 

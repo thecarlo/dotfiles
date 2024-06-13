@@ -1,0 +1,145 @@
+# ################################################################ #
+# THE FOLLOWING IS AN EXPLANATION OF THE GRAMMAR THAT SKHD PARSES. #
+# FOR SIMPLE EXAMPLE MAPPINGS LOOK FURTHER DOWN THIS FILE..        #
+# ################################################################ #
+
+# A list of all built-in modifier and literal keywords can
+# be found at https://github.com/koekeishiya/skhd/issues/1
+#
+# A hotkey is written according to the following rules:
+#
+#   hotkey       = <mode> '<' <action> | <action>
+#
+#   mode         = 'name of mode' | <mode> ',' <mode>
+#
+#   action       = <keysym> '[' <proc_map_lst> ']' | <keysym> '->' '[' <proc_map_lst> ']'
+#                  <keysym> ':' <command>          | <keysym> '->' ':' <command>
+#                  <keysym> ';' <mode>             | <keysym> '->' ';' <mode>
+#
+#   keysym       = <mod> '-' <key> | <key>
+#
+#   mod          = 'modifier keyword' | <mod> '+' <mod>
+#
+#   key          = <literal> | <keycode>
+#
+#   literal      = 'single letter or built-in keyword'
+#
+#   keycode      = 'apple keyboard kVK_<Key> values (0x3C)'
+#
+#   proc_map_lst = * <proc_map>
+#
+#   proc_map     = <string> ':' <command> | <string>     '~' |
+#                  '*'      ':' <command> | '*'          '~'
+#
+#   string       = '"' 'sequence of characters' '"'
+#
+#   command      = command is executed through '$SHELL -c' and
+#                  follows valid shell syntax. if the $SHELL environment
+#                  variable is not set, it will default to '/bin/bash'.
+#                  when bash is used, the ';' delimeter can be specified
+#                  to chain commands.
+#
+#                  to allow a command to extend into multiple lines,
+#                  prepend '\' at the end of the previous line.
+#
+#                  an EOL character signifies the end of the bind.
+#
+#   ->           = keypress is not consumed by skhd
+#
+#   *            = matches every application not specified in <proc_map_lst>
+#
+#   ~            = application is unbound and keypress is forwarded per usual, when specified in a <proc_map>
+#
+# A mode is declared according to the following rules:
+#
+#   mode_decl = '::' <name> '@' ':' <command> | '::' <name> ':' <command> |
+#               '::' <name> '@'               | '::' <name>
+#
+#   name      = desired name for this mode,
+#
+#   @         = capture keypresses regardless of being bound to an action
+#
+#   command   = command is executed through '$SHELL -c' and
+#               follows valid shell syntax. if the $SHELL environment
+#               variable is not set, it will default to '/bin/bash'.
+#               when bash is used, the ';' delimeter can be specified
+#               to chain commands.
+#
+#               to allow a command to extend into multiple lines,
+#               prepend '\' at the end of the previous line.
+#
+#               an EOL character signifies the end of the bind.
+
+# ############################################################### #
+# THE FOLLOWING SECTION CONTAIN SIMPLE MAPPINGS DEMONSTRATING HOW #
+# TO INTERACT WITH THE YABAI WM. THESE ARE SUPPOSED TO BE USED AS #
+# A REFERENCE ONLY, WHEN MAKING YOUR OWN CONFIGURATION..          #
+# ############################################################### #
+
+#move active window to space
+# shift - 1 : yabai -m window --space 1; \
+ctrl + shift - 1 : yabai -m window --space 1; sleep 0.40; cliclick "kd:ctrl" "t:1" "ku:ctrl"
+ctrl + shift - 2 : yabai -m window --space 2; sleep 0.40; cliclick "kd:ctrl" "t:2" "ku:ctrl"
+ctrl + shift - 3 : yabai -m window --space 3; sleep 0.40; cliclick "kd:ctrl" "t:3" "ku:ctrl"
+ctrl + shift - 4 : yabai -m window --space 4; sleep 0.40; cliclick "kd:ctrl" "t:4" "ku:ctrl"
+ctrl + shift - 5 : yabai -m window --space 5; sleep 0.20; cliclick "kd:ctrl" "t:5" "ku:ctrl"
+ctrl + shift - 6 : yabai -m window --space 6; sleep 0.20; cliclick "kd:ctrl" "t:6" "ku:ctrl"
+ctrl + shift - 7 : yabai -m window --space 7; sleep 0.20; cliclick "kd:ctrl" "t:7" "ku:ctrl"
+ctrl + shift - 8 : yabai -m window --space 8; sleep 0.20; cliclick "kd:ctrl" "t:8" "ku:ctrl"
+ctrl + shift - 9 : yabai -m window --space 9; sleep 0.20; cliclick "kd:ctrl" "t:9" "ku:ctrl"
+ctrl + shift - 0 : yabai -m window --space 10; sleep 0.20; cliclick "kd:ctrl" "t:0" "ku:ctrl"
+ctrl + shift + alt - 1 : yabai -m window --space 11; sleep 0.20; cliclick "kd:ctrl" "kd:alt" "t:1" "ku:alt" "ku:ctrl"
+ctrl + shift + alt - 2 : yabai -m window --space 12; sleep 0.20; cliclick "kd:ctrl" "kd:alt" "t:2" "ku:ctrl" "ku:alt"
+ctrl + shift + alt - 3 : yabai -m window --space 13; sleep 0.20; cliclick "kd:ctrl" "kd:alt" "t:3" "ku:ctrl" "ku:alt"
+ctrl + shift + alt - 4 : yabai -m window --space 14; sleep 0.20; cliclick "kd:ctrl" "kd:alt" "t:4" "ku:ctrl" "ku:alt"
+ctrl + shift + alt - 5 : yabai -m window --space 15; sleep 0.20; cliclick "kd:ctrl" "kd:alt" "t:5" "ku:ctrl" "ku:alt"
+ctrl + shift + alt - 6 : yabai -m window --space 16; sleep 0.20; cliclick "kd:ctrl" "kd:alt" "t:6" "ku:ctrl" "ku:alt"
+
+# send window to monitor and follow focus
+# ctrl + alt + cmd - 1  : yabai -m window --display next; yabai -m display --focus next
+ctrl + cmd - 1  : yabai -m window --display 3; sleep 0.1; yabai -m display --focus 3
+ctrl + cmd - 2  : yabai -m window --display 1; sleep 0.1; yabai -m display --focus 1
+ctrl + cmd - 3  : yabai -m window --display 2; sleep 0.1; yabai -m display --focus 2
+
+# focus monitors
+alt - 1  : yabai -m display --focus 3
+alt - 2  : yabai -m display --focus 1
+alt - 3  : yabai -m display --focus 2
+
+# move window and split
+hyper - q : yabai -m window --warp west
+hyper - w : yabai -m window --warp east
+hyper - t : yabai -m window --warp south
+hyper - y : yabai -m window --warp north
+
+# balance size of windows
+hyper - b : yabai -m space --balance
+
+# Change split orientation from vertical to horizontal
+hyper - o : yabai -m window --toggle split
+
+# focus right window
+hyper - left : yabai -m window --focus west
+
+# focus right window
+hyper - right : yabai -m window --focus east
+
+# make floating window fill left-half of screen
+ctrl + shift + alt - k : yabai -m window --grid 1:2:0:0:1:1
+
+# float toggle
+ctrl + shift - m : yabai -m window --toggle float
+
+# float / unfloat window and center on screen --grid 4:4:1:1:2:2
+ctrl + shift - t : yabai -m window --toggle float; \
+          yabai -m window --grid 10:10:1:1:8:8; \
+          # yabai -m window --grid 5:5:1:0:3:5; \
+          yabai -m window --center
+
+# restart yabai && skhd
+ctrl + shift + alt - r : yabai --stop-service ; yabai --start-service && skhd --stop-service ; skhd --start-service
+
+ctrl + shift - p : yabai -m space --toggle padding; yabai -m space --toggle gap
+
+# yabai --stop-service
+# yabai --start-service
