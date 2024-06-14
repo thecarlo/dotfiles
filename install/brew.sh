@@ -42,7 +42,7 @@ echo "brew packages installed 🚀"
 
 brew install --cask hpedrorodrigues/tools/dockutil # See https://github.com/kcrawford/dockutil/issues/127#issuecomment-1118733013
 # brew install dockutil # Used to manage the dock
-brew install --cask firefox
+# brew install --cask firefox
 brew install --cask iterm2
 brew install --cask alfred
 brew install --cask visual-studio-code
@@ -62,17 +62,14 @@ brew install --cask handbrake
 brew install --cask raycast
 brew install --cask vlc
 brew install --cask monitorcontrol
-brew install --cask discord
+# brew install --cask discord
 brew install --cask cyberduck
 brew install --cask bartender
 # brew install --cask kap
-brew install --cask snagit
 brew install --cask folx
 brew install --cask aldente
-brew install --cask jiggler
 brew install --cask oversight
 brew install --cask malwarebytes
-# brew install --cask istat-menus
 brew install --cask stats
 brew install --cask shottr
 brew install --cask keycastr
@@ -85,9 +82,6 @@ brew install --cask contexts
 #brew install --cask downie
 brew install --cask kdiff3
 brew install --cask iina
-brew install --cask qlmarkdown
-brew install --cask quicklook-json
-brew install --cask emojipedia
 
 sleep 1
 

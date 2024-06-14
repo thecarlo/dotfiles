@@ -1,0 +1,103 @@
+[mergetool]
+	keepBackup = false
+	prompt = false
+[user]
+	name = 
+	email = 
+[diff]
+	tool = vscode
+[difftool "kdiff3"]
+	path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+[mergetool "kdiff3"]
+	path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+[pull]
+	rebase = false
+	ff = only
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+[core]
+	excludesfile = /Users/carlovan/.gitignore_global
+	editor = code --wait
+	pager = delta
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/carlovan/.stCommitMsg
+[init]
+	defaultBranch = master
+[merge]
+	tool = vscode
+[difftool]
+	prompt = true
+[alias]
+	fod = fetch origin develop
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	new = lg master..HEAD
+	missing = lg HEAD..master
+	parent = "!git show-branch -a | sed \"s/].*//\" | grep \"\\*\" | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed \"s/^.*\\[//\""
+	pf = push --force origin head
+	po = push origin head
+	pl = pull
+	ss = status
+	st = status -sb
+	s = "!f() { \
+        git status -sb; \
+        if [ -z \"$(git status --porcelain)\" ]; then \
+            echo 'nothing to commit, working tree clean'; \
+        fi \
+    }; f"
+	cl = config --global -l
+	fa = fetch --all
+	fm = fetch origin master
+	col = checkout @{-1}
+	brl = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+	brr = branch -r
+	dt = difftool
+	d = diff
+	d1 = diff HEAD~1 HEAD~0
+	dt1 = difftool HEAD~1 HEAD~0
+	swm = switch master
+	swd = switch develop
+	swl = switch @{-1}
+	swn = switch -c
+	sw = switch
+	del = branch -D
+	md = merge develop
+	mm = merge master
+	a = add -A
+	cm = commit -m
+	ac = !git add --all && git commit -m
+	d2 = diff HEAD~2 HEAD~0
+	dt2 = difftool HEAD~2 HEAD~0
+	d3 = diff HEAD~3 HEAD~0
+	dt3 = difftool HEAD~3 HEAD~0
+	fcm = diff --name-only develop...HEAD
+	fcd = diff --name-only master...HEAD
+	b = blame
+	cp = cherry-pick
+	pfd = push -u origin develop -f --no-verify
+	pfnv = push origin head -f --no-verify
+	updev = branch --set-upstream-to=origin/develop develop
+	upmaster = branch --set-upstream-to=origin/master master
+  pa = push --all origin
+[delta]
+	line-numbers = true
+	keep-plus-minus-markers = true
+	side-by-side = true
+	navigate = true
+	minus-style = normal "#410202"
+	minus-emph-style = normal "#7A2F2E"
+	plus-style = normal "#15223A"
+	plus-emph-style = normal "#234D87"
+	blame-palette = "#15223A #171B22"
