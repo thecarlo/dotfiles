@@ -226,11 +226,6 @@
     "command": "workbench.action.tasks.runTask"
   },
   {
-    "key": "shift+alt+x",
-    "command": "editor.action.deleteLines",
-    "when": "textInputFocus && !editorReadonly"
-  },
-  {
     "key": "ctrl+alt+cmd+a",
     "command": "workbench.action.toggleActivityBarVisibility"
   },
@@ -280,5 +275,48 @@
   {
     "key": "ctrl+shift+alt+f",
     "command": "workbench.action.focusActiveEditorGroup"
+  },
+  {
+    "key": "cmd+r",
+    "command": "-workbench.action.reloadWindow",
+    "when": "isDevelopment"
+  },
+  {
+    "key": "ctrl+shift+cmd+r",
+    "command": "workbench.action.reloadWindow"
+  },
+  {
+    "key": "ctrl+shift+cmd+1",
+    "command": "workbench.action.openEditorAtIndex1"
+  },
+  {
+    "key": "ctrl+1",
+    "command": "-workbench.action.openEditorAtIndex1"
+  },
+  {
+    "key": "ctrl+shift+cmd+2",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "ctrl+shift+cmd+9",
+    "command": "workbench.action.closePanel"
+  },
+  {
+    "key": "ctrl+shift+cmd+x",
+    "command": "editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+cmd+z",
+    "command": "lntoggle.toggle"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "-lntoggle.toggle"
   }
 ]
