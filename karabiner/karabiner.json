@@ -1296,6 +1296,83 @@
             ]
           },
           {
+            "description": "Google Chrome: mouse button 3 → Developer Tools",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "pointing_button": "button3"
+                },
+                "to": [
+                  {
+                    "key_code": "i",
+                    "modifiers": ["left_option", "left_command"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Google Chrome: left ctrl + mouse button 3 → Developer Console",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "pointing_button": "button3",
+                  "modifiers": {
+                    "mandatory": ["left_control"],
+                    "optional": []
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "j",
+                    "modifiers": ["left_option", "left_command"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Google Chrome: left option + mouse button 3 → Developer Elements Panel",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "pointing_button": "button3",
+                  "modifiers": {
+                    "mandatory": ["left_option"],
+                    "optional": []
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "c",
+                    "modifiers": ["left_shift", "left_command"]
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["^com\\.google\\.Chrome$"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "Slack: Caps Lock Hyper key + 1 → Launch quick search",
             "manipulators": [
               {
@@ -1631,6 +1708,29 @@
                   {
                     "key_code": "u",
                     "modifiers": ["command"]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Slack: mouse button 3 → launch search",
+            "manipulators": [
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"]
+                  }
+                ],
+                "from": {
+                  "pointing_button": "button3"
+                },
+                "to": [
+                  {
+                    "key_code": "k",
+                    "modifiers": ["left_command"]
                   }
                 ]
               }
