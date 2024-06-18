@@ -19,7 +19,7 @@
     "command": "bookmarks.listFromAllFiles"
   },
   {
-    "key": "ctrl+alt+cmd+m",
+    "key": "ctrl+shift+cmd+m",
     "command": "workbench.action.toggleMaximizedPanel"
   },
   {
