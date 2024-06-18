@@ -58,6 +58,7 @@
   "zenMode.fullScreen": false,
   "zenMode.hideActivityBar": true,
   "zenMode.silentNotifications": true,
+  "zenMode.showTabs": "multiple",
   "workbench.startupEditor": "none",
   "editor.suggestSelection": "first",
   "editor.cursorBlinking": "blink",
@@ -304,8 +305,8 @@
     "diffEditorOverview.removedForeground": "#a10000"
   },
   "workbench.colorTheme": "Default Dark+",
-  "zenMode.showTabs": "single",
   "editor.accessibilitySupport": "off",
   "diffEditor.useInlineViewWhenSpaceIsLimited": false,
-  "github.copilot.editor.enableAutoCompletions": true
+  "github.copilot.editor.enableAutoCompletions": true,
+  "editor.lineNumbers": "off"
 }
