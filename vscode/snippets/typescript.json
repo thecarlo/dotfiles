@@ -1,0 +1,301 @@
+{
+  // interface
+  "export interface": {
+    "prefix": "exi",
+    "body": [
+      "export interface ${1:name} {",
+      "  ${2:property}: ${3:type};",
+      "};"
+    ],
+    "description": "Export interface"
+  },
+
+  // logger
+  "import logger from microservice utilities": {
+    "prefix": "implog",
+    "body": "import { Logger } from '@qantas/loy-urp-microservice-utilities';\n",
+    "description": "Imports the logger from Microservice Utilities"
+  },
+
+  "microservice utils logger declaration": {
+    "prefix": "declog",
+    "body": "const logger = new Logger();\n",
+    "description": "Logger declaration"
+  },
+
+  "console log": {
+    "prefix": "cl",
+    "body": "console.log('${1:message}');\n",
+    "description": "Console.log"
+  },
+
+  "console log with meta": {
+    "prefix": "clm",
+    "body": "console.log('${1:message}', { ${2:meta} });\n",
+    "description": "Console.log with meta"
+  },
+
+  "logger": {
+    "prefix": "log",
+    "body": "logger.info('${1:message}');\n",
+    "description": "logger.info"
+  },
+
+  "logger with meta": {
+    "prefix": "logm",
+    "body": "logger.info('${1:message}', { ${2:meta} });\n",
+    "description": "logger.info with meta"
+  },
+
+  "console log stringify": {
+    "prefix": "cls",
+    "body": "console.log('${1:actual}', JSON.stringify(${2:actual}, null, 2));\n",
+    "description": "Console.log stringify"
+  },
+
+  "console log tdd": {
+    "prefix": "clogtdd",
+    "body": "console.log('${1:actual} ===>', { ${2:actual} });\n",
+    "description": "Console.log"
+  },
+
+  "console log tdd stringify": {
+    "prefix": "clogtddstringify",
+    "body": "console.log('${1:message} ===>', JSON.stringify(${2:meta}, null, 2));\n",
+    "description": "Console.log"
+  },
+
+  "logger info": {
+    "prefix": "loginfo",
+    "body": "logger.info('${1:message}');\n",
+    "description": "Logger info"
+  },
+
+  "logger info with meta": {
+    "prefix": "logmeta",
+    "body": "logger.info('${1:message}', ${2:meta});\n",
+    "description": "Logger info with meta"
+  },
+
+  "logger debug": {
+    "prefix": "logde",
+    "body": "logger.debug('${1:message}');\n",
+    "description": "Logger debug"
+  },
+
+  "logger debug with meta": {
+    "prefix": "ldem",
+    "body": "logger.debug('${1:message}', ${2:meta});\n",
+    "description": "Logger debug with meta"
+  },
+
+  // functions
+  "export named function": {
+    "prefix": "exf",
+    "body": [
+      "export const ${1:functionName} = (${2:params}): ${3:any} => {",
+      "  return undefined;",
+      "};"
+    ],
+    "description": "Export named function in ES6 syntax"
+  },
+
+  "export named async function": {
+    "prefix": "exaf",
+    "body": [
+      "export const ${1:functionName} = async (${2:params}): Promise<${3:any}> => {",
+      "  return undefined;",
+      "};"
+    ],
+    "description": "Export named async function in ES6 syntax"
+  },
+
+  "export default function": {
+    "prefix": "exdf",
+    "body": [
+      "export default (${2:params}): ${3:any} => {",
+      "  return undefined;",
+      "};"
+    ],
+    "description": "Export named function in ES6 syntax"
+  },
+
+  "exportNamedVoid": {
+    "prefix": "exnv",
+    "body": [
+      "export const ${1:functionName} = (${2:params}): void => {",
+      "  //",
+      "};"
+    ],
+    "description": "Export named void in ES6 syntax"
+  },
+
+  "promise": {
+    "prefix": "prom",
+    "body": "return new Promise((resolve, reject) => {\n\t${1}\n});",
+    "description": "Creates and returns a new Promise in the standard ES6 syntax"
+  },
+
+  "map": {
+    "prefix": "map",
+    "body": "${1}.map((${2:item}) => {\n\t${0}\n});",
+    "description": "map"
+  },
+
+  "reduce": {
+    "prefix": "reduce",
+    "body": "${1}.reduce((${2:previous}, ${3:current}) => {\n\t${0}\n}${4:, initial});",
+    "description": "reduce"
+  },
+
+  "filter": {
+    "prefix": "filter",
+    "body": "${1}.filter(${2:item} => {\n\t${0}\n});",
+    "description": "filter"
+  },
+
+  "find": {
+    "prefix": "find",
+    "body": "${1}.find(${2:item} => {\n\t${0}\n});",
+    "description": "find"
+  },
+
+  "destructure const assignment": {
+    "prefix": "destr",
+    "body": "const {${1:name}} = ${2:value};",
+    "description": "destructure const assignment"
+  },
+
+  // TDD
+  "describe block": {
+    "prefix": "descb",
+    "body": "describe('${1:description}', () => {\n\t${0}\n});",
+    "description": "describe block"
+  },
+
+  "it block": {
+    "prefix": "itb",
+    "body": "it('${1:description}', () => {\n\t${0}\n});",
+    "description": "it block"
+  },
+
+  "afterEach block": {
+    "prefix": "afea",
+    "body": ["afterEach(function () {", "  restore();", "});"],
+    "description": "afterEach block"
+  },
+
+  "beforeEach block": {
+    "prefix": "bfe",
+    "body": "beforeEach(() => {\n\t${0}\n});",
+    "description": "beforeEach block"
+  },
+
+  "TDD imports": {
+    "prefix": "imptdd",
+    "body": [
+      "import { expect, use } from 'chai';",
+      "import chaiAsPromised from 'chai-as-promised';",
+      "import { restore, stub } from 'sinon';",
+      "",
+      "use(chaiAsPromised);",
+      ""
+    ],
+    "description": "TDD imports"
+  },
+
+  "Import Chai Expect": {
+    "prefix": "impexp",
+    "body": "import { expect } from 'chai';\n",
+    "description": "Import Chai Expect"
+  },
+
+  "Import Sinon": {
+    "prefix": "impsin",
+    "body": "import { restore, stub } from 'sinon';\n",
+    "description": "Sinon"
+  },
+
+  "Chai Expect Throw assertion": {
+    "prefix": "tddexpthrow",
+    "body": [
+      "expect(() => ${1:function}(${2:params})).to.throw(",
+      "  '${3:errorMessageText}'",
+      ");"
+    ],
+    "description": "Chai Expect Throw assertion"
+  },
+
+  "Sinon Stub": {
+    "prefix": "stub",
+    "body": "stub(${1:import}, '${1:import}').returns(${2:result});\n",
+    "description": "Sinon stub"
+  },
+
+  "Act": {
+    "prefix": "tddactual",
+    "body": "const actual = ${1:function}(${2:params});\n",
+    "description": "TDD Actual"
+  },
+
+  "Assert": {
+    "prefix": "tddexp",
+    "body": "expect(${1:actual}).to.equal(${2:expected});\n",
+    "description": "TDD Assertion"
+  },
+
+  // lodash
+  "Import Lodash Merge": {
+    "prefix": "implodmerge",
+    "body": "import { merge } from 'lodash';\n",
+    "description": "Import lodash merge"
+  },
+
+  "Lodash Merge": {
+    "prefix": "lodmerge",
+    "body": ["merge(${1:sourceObject}, {", "  ${2:key}: ${3:value}", "});", ""],
+    "description": "Lodash merge"
+  },
+
+  "Import Lodash clone": {
+    "prefix": "implodclone",
+    "body": "import { clone } from 'lodash';\n",
+    "description": "Import lodash clone"
+  },
+
+  "Import Lodash cloneDeep": {
+    "prefix": "implodclonedeep",
+    "body": "import { cloneDeep } from 'lodash';\n",
+    "description": "Import lodash cloneDeep"
+  },
+
+  "Lodash cloneDeep": {
+    "prefix": "lodclonedeep",
+    "body": "const ${1:variableName} = cloneDeep(${2:sourceObjectToClone});\n",
+    "description": "Lodash cloneDeep"
+  },
+
+  "Import Lodash get": {
+    "prefix": "implodget",
+    "body": "import { get } from 'lodash';\n",
+    "description": "Import lodash get"
+  },
+
+  "Lodash get": {
+    "prefix": "lodget",
+    "body": "const ${1:variableName} = get(${2:sourceObject}, ${3:sourceProperty}, ${4:defaultValue});\n",
+    "description": "Lodash get"
+  },
+
+  "Import Lodash isEmpty": {
+    "prefix": "implodisempty",
+    "body": "import { isEmpty } from 'lodash';\n",
+    "description": "Import lodash isEmpty"
+  },
+
+  "Lodash isEmpty": {
+    "prefix": "lodisempty",
+    "body": ["if (isEmpty(${1:sourceObject})) {", "  //", "}", ""],
+    "description": "Lodash ieEmpty"
+  }
+}

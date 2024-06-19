@@ -1,0 +1,49 @@
+{
+  //components
+  "export named function": {
+    "prefix": "exrfc",
+    "body": [
+      "export const ${1:functionName}: React.FC = (): JSX.Element => {",
+      "  return <div>${2}</div>;",
+      "};"
+    ],
+    "description": "Export React.FC"
+  },
+
+  //imports
+  "import react": {
+    "prefix": "imr",
+    "body": "import React from 'react';\n",
+    "description": "Import React"
+  },
+
+  "import react and useState": {
+    "prefix": "imrus",
+    "body": "import React, { useState } from 'react';\n",
+    "description": "Import React and useState"
+  },
+
+  "import react and useState and useEffect": {
+    "prefix": "imruse",
+    "body": "import React, { useState, useEffect } from 'react';\n",
+    "description": "Import React and useState and useEffect"
+  },
+
+  "import react and useEffect": {
+    "prefix": "imrue",
+    "body": "import React, { useEffect } from 'react';\n",
+    "description": "Import React and useEffect"
+  },
+
+  "import react and useRef": {
+    "prefix": "imrur",
+    "body": "import React, { useRef } from 'react';\n",
+    "description": "Import React and useRef"
+  },
+
+  "import Link from react-router-dom": {
+    "prefix": "iml",
+    "body": "import { Link } from 'react-router-dom';\n",
+    "description": "Import Link from react-router-dom"
+  }
+}
